@@ -37,7 +37,7 @@ $squadre = [
 <body>
 <?php
 foreach ($squadre as $squadra) {
-    echo $squadra['squadra_casa']. ' - ' . $squadra['squadra_ospite'] . ' | ' . $squadra['punti_casa'].'-'. $squadra['punti_ospite'].'<br>'.'<br>';
+    echo $squadra['squadra_casa']. ' - ' . $squadra['squadra_ospite'] . ' | ' . $squadra['punti_casa'].'-'. $squadra['punti_ospite'].'<br>'.'<br>'.'<br>';
 } ?>
 </body>
 </html>
