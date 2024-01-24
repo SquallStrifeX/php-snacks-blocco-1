@@ -1,13 +1,17 @@
-<?php 
+<?php
 
 if (isset($_GET['nome']) && isset($_GET['email']) && isset($_GET['eta'])) {
     $nome = $_GET['nome'];
     $email = $_GET['email'];
     $eta = $_GET['eta'];
-} if (strlen($nome) < 3) &&  {
-        $erroreNome = 'Il nome deve contenere almeno 3 caratteri.';
-    }
 
+    if (strlen($nome) < 3 || !(strpos($email, '.') && strpos($email, '@')) || !is_numeric($eta)) {
+        $access = 'Accesso Negato! <br> Il nome deve contenere almeno 3 caratteri o l\'email non è valida o l\'età non è un numero.';
+    }
+    else{
+        $access = 'Accesso Consentito!';
+    }
+}
 
 ?>
 
@@ -42,13 +46,13 @@ if (isset($_GET['nome']) && isset($_GET['email']) && isset($_GET['eta'])) {
   <input type="text" class="form-control" id="Eta" placeholder="inserisci la tua età" name="eta" ></input>
 </div>
                 </div>
-                <div class="col-4">
+                <div class="col-12">
                  <button class="btn btn-success"> Invia i dati</button>
-</div>
+</div>  <div class="col-12 mt-5">
+                   <div class="text-danger"> <?php echo $access ?></div>
                 </div>
-                <div class="col-4">
-                    <?php echo $nome . $email . $eta ?>
                 </div>
+              
             </div>
         </div>
 
